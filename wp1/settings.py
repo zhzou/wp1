@@ -23,14 +23,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'g83yr*kf=7ap4k@v_2-)190zr89z2=5+v+bt!7szq0fc15y0s^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*','130.245.169.164','zhzou.cse356.compas.cs.stonybrook.edu','localhost']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'main',
+    'play',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -54,7 +56,7 @@ ROOT_URLCONF = 'wp1.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['./templates',],
+        'DIRS': ['./templates',BASE_DIR+"/templates",],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -68,7 +70,7 @@ TEMPLATES = [
      {
         'BACKEND': 'django.template.backends.jinja2.Jinja2',
         'DIRS': [
-            './templates',
+            './templates',BASE_DIR+"/templates",
         ],
     },
 ]
@@ -126,3 +128,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = ( os.path.join(BASE_DIR, 'static'), )
 TEMPLATES_DIRS = (os.path.join(BASE_DIR, 'templates'), )
+
+
